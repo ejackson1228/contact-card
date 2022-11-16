@@ -16,3 +16,44 @@ export const initdb = async () => {
       }
     })
   }
+
+export const getdb = async () => {
+    console.log('GET from the indexed DB');
+    
+    // Create a connection to the indexedDB database and the version we want to use 
+    const contactDb = await openDB('contact_db', 1);
+
+    //create a new transaction and specify the store and data priveleges 
+    const tx = contactDb.transaction('contacts', 'readonly');
+
+    //open up the desired object store
+    const store = tx.objectStore('contacts');
+
+    // use the .getAll() method to get all data in the db
+    const request = store.getAll();
+
+    // get confirmation of the request 
+    const result = await request;
+    console.log('result.value', result);
+    return result;
+}
+
+export const postdb = async(name, email, phone, profile) => {
+    console.log('POST to the indexed DB');
+
+    //create connection to the db and specify the version 
+    const contactDb = await openDB('contact_db', 1);
+
+    // create a new transaction and specify the store and data priveleges
+    const tx = contactDb.transaction('contacts', 'readwrite');
+
+    //open up desired object store 
+    const store = tx.objectStore('contacts');
+
+    // use the .add() method on the store and pass in the content
+    const request = store.add({ name: name, email: email, phone: phone, profile: profile });
+
+    // confirmation of request 
+    const result = await request;
+    console.log('data saved to the indexed db', result);
+}
