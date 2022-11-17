@@ -12,7 +12,7 @@ import Dog from "../images/dog.png";
 import { Tooltip, Toast, Popover } from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { initdb, getdb, postdb } from "./database";
+import { initdb, getdb, postdb, deletedb } from "./database";
 
 import { fetchCards } from "./cards";
 
@@ -65,3 +65,12 @@ form.addEventListener("submit", (event) => {
   // Reload the DOM
   fetchCards();
 });
+
+window.deleteCard = (e) => {
+    //grabs id from button element attached to the contact card
+    let id = parseInt(e.id);
+    //Delete the card
+    deletedb(id);
+    //reload the DOM
+    fetchCards();
+};
