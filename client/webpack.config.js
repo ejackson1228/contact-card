@@ -6,7 +6,7 @@ const WebpackPWAManifest = require('webpack-pwa-manifest');
 // new WorkboxPlugin.GenerateSW()
 
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: './src/js/index.js',
     output: {
         filename: 'bundle.js',
