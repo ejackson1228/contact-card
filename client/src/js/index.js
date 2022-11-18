@@ -19,6 +19,8 @@ import { fetchCards } from "./cards";
 import { toggleForm, clearForm } from "./form";
 
 
+const installBtn = document.getElementById('installBtn');
+
 // getdb();
 // postdb();
 // getdb();
@@ -108,3 +110,18 @@ if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./service-worker.js');
     })
 };
+
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  installBtn.style.visibility = 'visible';
+  
+  installBtn.addEventListener('click', () => {
+    event.prompt();
+    installBtn.setAttribute('disabled', true);
+    installBtn.textContent = 'Installed!';
+  })
+  });
+
+  window.addEventListener('appinstalled', (event) => {
+    console.log('appinstalled', event);
+  })
