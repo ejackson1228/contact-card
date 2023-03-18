@@ -40,6 +40,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './index.html',
             title: 'Webpack Plugin',
+            favicon: 'src/images/appIcon.ico'
         }),
 
         new InjectManifest({
