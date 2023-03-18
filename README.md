@@ -1,13 +1,16 @@
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)] 
 # <h1 align="center">Contact Cards</h1>
 
-<a href="">
+<a href="https://contact-cards.herokuapp.com/">Visit the App Here!</a>
 
 <img src="client/src/images/contact-cards.jpg" alt="Contact Cards Application" height="360px" width="720px">
 
-<br />
+
+
 ## Description
+
 a PWA for creating contact cards wherever and whenever! Download the app and to get offline functionality! 
+
   
 ## Table of Contents
   - [Description](#description)
